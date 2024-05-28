@@ -1,12 +1,11 @@
 package fileutils
 
 import (
-	"io/ioutil"
 	"os"
 )
 
 func ReadFile(filepath string) (string, error) {
-	content, err := ioutil.ReadFile(filepath)
+	content, err := os.ReadFile(filepath)
 	if err != nil {
 		return "", err
 	}
