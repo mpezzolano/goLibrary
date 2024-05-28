@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"goLibrary/chanutils"
+	_ "goLibrary/chanutils"
 	"goLibrary/fileutils"
 	_ "goLibrary/fileutils"
 	"goLibrary/logger"
@@ -22,4 +25,13 @@ func main() {
 		log.Info("File written successfully")
 	}
 
+	// channels example
+	ch := chanutils.CreateChannel(1)
+
+	// Write to the channel
+	go chanutils.WriteToChannel(ch, "Hello, Channel!")
+
+	// Read from the channel
+	message := chanutils.ReadFromChannel(ch)
+	fmt.Println("Received from channel:", message)
 }
