@@ -5,12 +5,18 @@ import (
 	"fmt"
 	"goLibrary/chanutils"
 	_ "goLibrary/chanutils"
+	"goLibrary/config"
 	"goLibrary/errorutils"
 	"goLibrary/fileutils"
 	_ "goLibrary/fileutils"
 	"goLibrary/logger"
 	_ "goLibrary/logger"
 )
+
+type AppConfig struct {
+	AppName string `json:"app_name"`
+	Port    int    `json:"port"`
+}
 
 func main() {
 	log := logger.NewLogger(logger.INFO)
@@ -55,4 +61,24 @@ func main() {
 
 	fmt.Println("Finished error handling example.")
 
+	fmt.Println("---------Configurations----------")
+	var appConfig AppConfig
+	errC := config.LoadConfig("config/test_config.json", &appConfig)
+	if errC != nil {
+		log.Error("Failed to load config: " + errC.Error())
+	} else {
+		log.Info("Config loaded successfully")
+	}
+
+	fmt.Printf("App Name: %s, Port: %d\n", appConfig.AppName, appConfig.Port)
+
+	// Example of loading config from environment variables
+	envConfig := map[string]string{
+		"APP_NAME": "",
+		"PORT":     "",
+	}
+	config.LoadConfigFromEnv(envConfig)
+	fmt.Printf("Env Config - App Name: %s, Port: %s\n", envConfig["APP_NAME"], envConfig["PORT"])
+
+	fmt.Println("--------- Finish Configurations----------")
 }
