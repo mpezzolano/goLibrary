@@ -1,9 +1,11 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"goLibrary/chanutils"
 	_ "goLibrary/chanutils"
+	"goLibrary/errorutils"
 	"goLibrary/fileutils"
 	_ "goLibrary/fileutils"
 	"goLibrary/logger"
@@ -34,4 +36,23 @@ func main() {
 	// Read from the channel
 	message := chanutils.ReadFromChannel(ch)
 	fmt.Println("Received from channel:", message)
+
+	// Create a custom error
+	errH := errorutils.New("Something went wrong", 500)
+	log.Error(errH.Error())
+
+	// Wrap an existing error
+	wrappedErr := errorutils.Wrap(errH, "Additional context")
+	log.Error(wrappedErr.Error())
+
+	// Unwrap an error
+	unwrappedErr := errorutils.Unwrap(wrappedErr)
+	if errors.Is(unwrappedErr, errH) {
+		log.Info("The original error was unwrapped successfully")
+	} else {
+		log.Error("Failed to unwrap the original error")
+	}
+
+	fmt.Println("Finished error handling example.")
+
 }
