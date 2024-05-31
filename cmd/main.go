@@ -25,4 +25,7 @@ func main() {
 	fmt.Println("Running HTTP client examples")
 	runHTTPClientExamples()
 
+	fmt.Println("Running Concurrency examples")
+	runConcurrencyExamples()
+
 }
