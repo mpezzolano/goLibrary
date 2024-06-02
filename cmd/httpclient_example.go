@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
-	"goLibrary/httpclient"
-	"goLibrary/logger"
-	_ "goLibrary/logger"
+	"github.com/mpezzolano/goLibrary/httpclient"
+	"github.com/mpezzolano/goLibrary/logger"
 )
 
 func runHTTPClientExamples() {

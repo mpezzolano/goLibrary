@@ -1,11 +1,10 @@
 package main
 
 import (
-	"goLibrary/logger"
-	_ "goLibrary/logger"
+	"github.com/mpezzolano/goLibrary/logger"
 )
 
-func runLoggerExamples() {
+func RunLoggerExamples() {
 	log := logger.NewLogger(logger.INFO)
 	log.Info("This is an info message")
 	log.Warning("This is a warning message")

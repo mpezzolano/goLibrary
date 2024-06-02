@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"goLibrary/chanutils"
-	_ "goLibrary/chanutils"
+	"github.com/mpezzolano/goLibrary/chanutils"
 )
 
 func runChanUtilsExamples() {

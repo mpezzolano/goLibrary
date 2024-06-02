@@ -1,10 +1,8 @@
 package main
 
 import (
-	"goLibrary/fileutils"
-	_ "goLibrary/fileutils"
-	"goLibrary/logger"
-	_ "goLibrary/logger"
+	"github.com/mpezzolano/goLibrary/fileutils"
+	"github.com/mpezzolano/goLibrary/logger"
 )
 
 func runFileUtilsExamples() {
