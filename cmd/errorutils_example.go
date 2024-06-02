@@ -3,9 +3,8 @@ package main
 import (
 	"errors"
 	"fmt"
-	"goLibrary/errorutils"
-	"goLibrary/logger"
-	_ "goLibrary/logger"
+	"github.com/mpezzolano/goLibrary/errorutils"
+	"github.com/mpezzolano/goLibrary/logger"
 )
 
 func runErrorUtilsExamples() {

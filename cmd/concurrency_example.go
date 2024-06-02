@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"goLibrary/concurrency"
+	"github.com/mpezzolano/goLibrary/concurrency"
 	"sync"
 )
 

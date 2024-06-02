@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
-	"goLibrary/config"
-	"goLibrary/logger"
-	_ "goLibrary/logger"
+	"github.com/mpezzolano/goLibrary/config"
+	"github.com/mpezzolano/goLibrary/logger"
 )
 
 type AppConfig struct {

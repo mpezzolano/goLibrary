@@ -2,30 +2,27 @@ package main
 
 import (
 	"fmt"
-	_ "goLibrary/chanutils"
-	_ "goLibrary/fileutils"
+	"github.com/mpezzolano/goLibrary/chanutils"
+	_ "github.com/mpezzolano/goLibrary/chanutils"
+	_ "github.com/mpezzolano/goLibrary/fileutils"
+	"github.com/mpezzolano/goLibrary/logger"
+	_ "github.com/mpezzolano/goLibrary/logger"
 )
 
 func main() {
-	fmt.Println("Running logger examples")
-	runLoggerExamples()
 
-	fmt.Println("Running file utils examples")
-	runFileUtilsExamples()
+	log := logger.NewLogger(logger.INFO)
+	log.Info("This is an info message")
+	log.Warning("This is a warning message")
+	log.Error("This is an error message")
+	log.Debug("This is a debug message")
 
-	fmt.Println("Running channel utils examples")
-	runChanUtilsExamples()
+	fmt.Println("another test")
+	ch := chanutils.CreateChannel(1)
 
-	fmt.Println("Running error utils examples")
-	runErrorUtilsExamples()
+	go chanutils.WriteToChannel(ch, "Hello, Channel!")
 
-	fmt.Println("Running config examples")
-	runConfigExamples()
-
-	fmt.Println("Running HTTP client examples")
-	runHTTPClientExamples()
-
-	fmt.Println("Running Concurrency examples")
-	runConcurrencyExamples()
+	message := chanutils.ReadFromChannel(ch)
+	fmt.Println("Received from channel:", message)
 
 }
